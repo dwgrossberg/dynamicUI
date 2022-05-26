@@ -7,20 +7,17 @@ const dropdownMenu = (() => {
   menuUL.style.display = "flex";
   menuUL.style.justifyContent = "space-around";
   menuUL.style.listStyle = "none";
-  menuUL.style.height = "100%";
 
   const setColumns = (...args) => {
     args.forEach((arg) => {
       const argLI = document.createElement("li");
       argLI.classList.add("dropdown-nav");
       argLI.style.display = "flex";
-      argLI.style.alignSelf = "center";
       argLI.style.justifyContent = "center";
-      argLI.style.alignItems = "center";
       argLI.style.width = "100%";
-      argLI.style.height = "100%";
+      const menuHeight = window.getComputedStyle(dropdownMenuDOM).height;
+      argLI.style.height = menuHeight;
       argLI.style.cursor = "pointer";
-
       const argA = document.createElement("a");
       argA.setAttribute("id", `dropdown-nav-link-${arg[0]}`);
       argA.innerText = arg[0];
@@ -28,7 +25,7 @@ const dropdownMenu = (() => {
       argA.style.display = "flex";
       argA.style.alignItems = "center";
       argA.style.textDecoration = "none";
-      argA.style.height = "15px";
+      argA.style.height = menuHeight;
       argLI.appendChild(argA);
       menuUL.appendChild(argLI);
     });
@@ -46,10 +43,11 @@ const dropdownMenu = (() => {
     const dropdown = (item) => {
       dropdownUL.style.display = "none";
       dropdownUL.style.flexDirection = "column";
+      dropdownUL.style.alignItems = "center";
       dropdownUL.style.listStyle = "none";
       dropdownUL.style.textDecoration = "none";
       dropdownUL.style.height = "fit-content";
-      dropdownUL.style.width = "fit-content";
+      dropdownUL.style.width = "100%";
       dropdownUL.style.zIndex = "10";
 
       args.forEach((arg) => {
@@ -84,17 +82,15 @@ const dropdownMenu = (() => {
 
         item.addEventListener("mouseenter", () => {
           item.style.flexDirection = "column";
-          item.style.justifyContent = "flex-start";
-          item.style.paddingTop = "30px";
+          item.style.alignItems = "center";
+          item.style.height = "100%";
 
-          dropdownUL.style.display = "flex";
+          dropdownUL.style.display = "block";
           arrowDiv.style.transform = "rotate(-90deg)";
         });
+
         item.addEventListener("mouseleave", () => {
-          item.style.display = "flex";
           item.style.flexDirection = "row";
-          item.style.justifyContent = "center";
-          item.style.paddingTop = "0";
 
           dropdownUL.style.display = "none";
           arrowDiv.style.transform = "rotate(90deg)";

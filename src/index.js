@@ -27,7 +27,5 @@ dropdownMenu.setDropdown(
   "Services",
   ["subLink-1", "input href..."],
   ["subLink-2", "input href..."],
-  ["subLink-3 is supppper long", "input href..."],
-  ["subLink-4", "input href..."],
-  ["subLink-5", "input href..."]
+  ["subLink-3", "input href..."]
 );

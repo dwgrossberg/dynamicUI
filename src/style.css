@@ -42,7 +42,6 @@ body {
 
 .dropdown-box {
   display: none;
-  margin-top: calc(var(--dropdown-height) - 15px);
 }
 
 .dropdown-item {
