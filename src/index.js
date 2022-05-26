@@ -16,15 +16,27 @@ dropdownMenu.setColumns(
 
 dropdownMenu.setDropdown(
   "Products",
-  ["subLink-1", "input href..."],
-  ["subLink-2", "input href..."],
-  ["subLink-3 is supppper long", "input href..."],
-  ["subLink-4", "input href..."],
-  ["subLink-5", "input href..."]
+  ["Link-1", "input href..."],
+  ["Link-2", "input href..."],
+  ["Link-3 is supppper long", "input href..."],
+  ["Link-4", "input href..."],
+  ["Link-5", "input href..."]
 );
 
 dropdownMenu.setDropdown(
   "Services",
+  ["Link-1", "input href..."],
+  ["Link-2", "input href..."],
+  ["Link-3", "input href..."],
+  ["Link-4", "input href..."],
+  ["Link-5", "input href..."],
+  ["Link-6", "input href..."],
+  ["Link-7", "input href..."]
+);
+
+dropdownMenu.setSubDropdown(
+  "Products",
+  "Link-2",
   ["subLink-1", "input href..."],
   ["subLink-2", "input href..."],
   ["subLink-3", "input href..."]

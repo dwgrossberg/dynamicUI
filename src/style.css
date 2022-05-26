@@ -32,7 +32,7 @@ body {
 }
 
 .dropdown-nav a,
-.dropdown-item a {
+[class^="dropdown-item"] a {
   color: ghostwhite;
 }
 
@@ -44,10 +44,10 @@ body {
   display: none;
 }
 
-.dropdown-item {
+[class^="dropdown-menu"] {
   background-color: #b5b6ba;
 }
 
-.dropdown-item:hover {
+[class^="dropdown-menu"]:hover {
   background-color: #baa1a7;
 }
