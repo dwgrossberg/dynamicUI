@@ -36,12 +36,13 @@ const dropdownMenu = (() => {
 
   // setDropdown adds a drowndown feature to a specified dropdown menu item
   const setDropdown = (name, ...args) => {
-    const menuItems = Array.from(
+    const menuNavItems = Array.from(
       document.getElementsByClassName("dropdown-nav")
     );
 
     const dropdownUL = document.createElement("ul");
     dropdownUL.classList.add("dropdown-box");
+    dropdownUL.setAttribute("id", `dropdown-box-${name}`);
     const dropdown = (item) => {
       dropdownUL.style.display = "none";
       dropdownUL.style.flexDirection = "column";
@@ -51,6 +52,7 @@ const dropdownMenu = (() => {
       dropdownUL.style.height = "fit-content";
       dropdownUL.style.width = "100%";
       dropdownUL.style.zIndex = "10";
+      dropdownUL.style.position = "relative";
 
       args.forEach((arg) => {
         const argLI = document.createElement("li");
@@ -72,7 +74,7 @@ const dropdownMenu = (() => {
       item.appendChild(dropdownUL);
     };
 
-    menuItems.forEach((item) => {
+    menuNavItems.forEach((item) => {
       if (item.innerText === name) {
         const arrowDiv = document.createElement("div");
         arrowDiv.style.backgroundImage = `url(${arrow})`;
@@ -110,6 +112,10 @@ const dropdownMenu = (() => {
     const subDropdownUL = document.createElement("ul");
     subDropdownUL.classList.add("dropdown-sub-box");
     subDropdownUL.style.display = "none";
+    subDropdownUL.style.position = "absolute";
+    subDropdownUL.style.left = "120px";
+    subDropdownUL.style.top = "0px";
+    subDropdownUL.style.zIndex = "20";
 
     const subDropdown = (item) => {
       args.forEach((arg) => {
@@ -131,47 +137,56 @@ const dropdownMenu = (() => {
       item.appendChild(subDropdownUL);
     };
 
-    const menuItems = Array.from(
-      document.querySelectorAll('li[class^="dropdown-menu-1"]')
+    const menuNavItems = Array.from(
+      document.getElementsByClassName("dropdown-nav")
     );
 
-    console.log(menuItems);
+    menuNavItems.forEach((nav) => {
+      console.log(nav.innerText, name);
+      if (nav.innerText === name) {
+        const menuDropdownItems = Array.from(
+          document.getElementById(`dropdown-box-${name}`).childNodes
+        );
 
-    menuItems.forEach((item) => {
-      console.log(item.innerText, subLink);
-      if (item.innerText === subLink) {
-        const dropdownItems = Array.from(item.childNodes);
-        dropdownItems.forEach((item) => {
+        console.log(menuDropdownItems);
+
+        menuDropdownItems.forEach((item) => {
+          console.log(item.innerText, subLink);
           if (item.innerText === subLink) {
-            console.log(item, subLink);
-            const arrowDivSub = document.createElement("div");
-            arrowDivSub.style.backgroundImage = `url(${arrow})`;
-            arrowDivSub.style.backgroundSize = "100%";
-            arrowDivSub.style.transform = "";
-            arrowDivSub.style.height = "8px";
-            arrowDivSub.style.width = "8px";
+            const dropdownItems = Array.from(item.childNodes);
 
-            const dropdownItem = document.getElementById(
-              `dropdown-nav-link-${subLink}`
-            );
-            dropdownItem.style.display = "flex";
-            dropdownItem.style.gap = "30px";
-            dropdownItem.style.alignItems = "center";
-            dropdownItem.appendChild(arrowDivSub);
-            subDropdown(item);
+            dropdownItems.forEach((item) => {
+              const arrowDivSub = document.createElement("div");
+              arrowDivSub.style.backgroundImage = `url(${arrow})`;
+              arrowDivSub.style.backgroundSize = "100%";
+              arrowDivSub.style.transform = "";
+              arrowDivSub.style.height = "8px";
+              arrowDivSub.style.width = "8px";
 
-            // item.addEventListener("mouseenter", () => {
-            //   item.style.flexDirection = "column";
-            //   item.style.alignItems = "center";
-            //   item.style.height = "100%";
-            //   subDropdownUL.style.display = "block";
-            //   arrowDivSub.style.transform = "rotate(-90deg)";
-            // });
-            // item.addEventListener("mouseleave", () => {
-            //   item.style.flexDirection = "row";
-            //   subDropdownUL.style.display = "none";
-            //   arrowDivSub.style.transform = "rotate(90deg)";
-            // });
+              const dropdownItem = document.getElementById(
+                `dropdown-nav-link-${subLink}`
+              );
+
+              dropdownItem.style.display = "flex";
+              dropdownItem.style.gap = "30px";
+              dropdownItem.style.alignItems = "center";
+              dropdownItem.appendChild(arrowDivSub);
+              subDropdown(item);
+
+              item.parentElement.addEventListener("mouseenter", () => {
+                item.style.flexDirection = "row";
+                item.style.alignItems = "center";
+                item.style.height = "100%";
+                subDropdownUL.style.display = "block";
+                arrowDivSub.style.transform = "rotate(-90deg)";
+              });
+
+              item.parentElement.addEventListener("mouseleave", () => {
+                item.style.flexDirection = "row";
+                subDropdownUL.style.display = "none";
+                arrowDivSub.style.transform = "rotate(90deg)";
+              });
+            });
           }
         });
       }

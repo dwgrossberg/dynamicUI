@@ -51,3 +51,7 @@ body {
 [class^="dropdown-menu"]:hover {
   background-color: #baa1a7;
 }
+
+.dropdown-sub-item {
+  background-color: #cacbce;
+}
