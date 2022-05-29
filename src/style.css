@@ -49,9 +49,13 @@ body {
 }
 
 [class^="dropdown-menu"]:hover {
-  background-color: #baa1a7;
+  background-color: #edd2e0;
 }
 
 .dropdown-sub-item {
   background-color: #cacbce;
+}
+
+.dropdown-sub-item:hover {
+  background-color: #baa1a7;
 }

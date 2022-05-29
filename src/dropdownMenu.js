@@ -113,9 +113,13 @@ const dropdownMenu = (() => {
     subDropdownUL.classList.add("dropdown-sub-box");
     subDropdownUL.style.display = "none";
     subDropdownUL.style.position = "absolute";
-    subDropdownUL.style.left = "120px";
-    subDropdownUL.style.top = "0px";
-    subDropdownUL.style.zIndex = "20";
+    subDropdownUL.style.width = "fit-content";
+    subDropdownUL.style.left = window.getComputedStyle(
+      document.getElementById(`dropdown-box-${name}`)
+    ).width;
+    subDropdownUL.style.top = window.getComputedStyle(
+      document.getElementById(`dropdown-box-${name}`)
+    ).height;
 
     const subDropdown = (item) => {
       args.forEach((arg) => {
@@ -171,13 +175,13 @@ const dropdownMenu = (() => {
                 item.style.alignItems = "center";
                 item.style.height = "100%";
                 subDropdownUL.style.display = "block";
-                arrowDivSub.style.transform = "rotate(-90deg)";
+                arrowDivSub.style.transform = "rotate(90deg)";
               });
 
               item.parentElement.addEventListener("mouseleave", () => {
                 item.style.flexDirection = "row";
                 subDropdownUL.style.display = "none";
-                arrowDivSub.style.transform = "rotate(90deg)";
+                arrowDivSub.style.transform = "none";
               });
             });
           }
