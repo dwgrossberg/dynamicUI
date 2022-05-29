@@ -171,15 +171,11 @@ const dropdownMenu = (() => {
                 item.style.height = "100%";
                 subDropdownUL.style.display = "block";
                 subDropdownUL.style.top =
-                  item.getBoundingClientRect().top -
+                  item.parentElement.getBoundingClientRect().top -
                   document
                     .getElementById("dropdown-menu")
                     .getBoundingClientRect().bottom +
                   "px";
-                console.log(
-                  subDropdownUL.style.top,
-                  item.getBoundingClientRect().top
-                );
                 arrowDivSub.style.transform = "rotate(90deg)";
               });
 
