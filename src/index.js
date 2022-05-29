@@ -35,7 +35,7 @@ dropdownMenu.setDropdown(
 );
 
 dropdownMenu.setSubDropdown(
-  "Products",
+  "Services",
   "Link-2",
   ["subLink-1", "input href..."],
   ["subLink-2", "input href..."],

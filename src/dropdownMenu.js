@@ -114,12 +114,7 @@ const dropdownMenu = (() => {
     subDropdownUL.style.display = "none";
     subDropdownUL.style.position = "absolute";
     subDropdownUL.style.width = "fit-content";
-    subDropdownUL.style.left = window.getComputedStyle(
-      document.getElementById(`dropdown-box-${name}`)
-    ).width;
-    subDropdownUL.style.top = window.getComputedStyle(
-      document.getElementById(`dropdown-box-${name}`)
-    ).height;
+    subDropdownUL.style.left = "100%";
 
     const subDropdown = (item) => {
       args.forEach((arg) => {
@@ -131,7 +126,6 @@ const dropdownMenu = (() => {
         argLI.style.justifyContent = "space-between";
         const argA = document.createElement("a");
         argA.setAttribute("id", `dropdown-nav-link-${arg[0]}`);
-
         argA.innerText = arg[0];
         argA.href = arg[1];
         argA.style.textDecoration = "none";
@@ -151,6 +145,10 @@ const dropdownMenu = (() => {
           document.getElementById(`dropdown-box-${name}`).childNodes
         );
 
+        const dropdownItem = document.getElementById(
+          `dropdown-nav-link-${subLink}`
+        );
+
         menuDropdownItems.forEach((item) => {
           if (item.innerText === subLink) {
             const dropdownItems = Array.from(item.childNodes);
@@ -162,9 +160,6 @@ const dropdownMenu = (() => {
               arrowDivSub.style.height = "8px";
               arrowDivSub.style.width = "8px";
               arrowDivSub.style.marginLeft = "auto";
-              const dropdownItem = document.getElementById(
-                `dropdown-nav-link-${subLink}`
-              );
               dropdownItem.style.display = "flex";
               dropdownItem.style.alignItems = "center";
               item.parentNode.appendChild(arrowDivSub);
@@ -175,6 +170,16 @@ const dropdownMenu = (() => {
                 item.style.alignItems = "center";
                 item.style.height = "100%";
                 subDropdownUL.style.display = "block";
+                subDropdownUL.style.top =
+                  item.getBoundingClientRect().top -
+                  document
+                    .getElementById("dropdown-menu")
+                    .getBoundingClientRect().bottom +
+                  "px";
+                console.log(
+                  subDropdownUL.style.top,
+                  item.getBoundingClientRect().top
+                );
                 arrowDivSub.style.transform = "rotate(90deg)";
               });
 
