@@ -40,10 +40,6 @@ body {
   background-color: #dbabbe;
 }
 
-.dropdown-box {
-  display: none;
-}
-
 [class^="dropdown-menu"] {
   background-color: #b5b6ba;
 }
