@@ -1,6 +1,6 @@
 {
   "name": "@dwgrossberg/dynamicui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Dynamic UIs built with JavaScript and CSS",
   "main": "index.js",
   "scripts": {
