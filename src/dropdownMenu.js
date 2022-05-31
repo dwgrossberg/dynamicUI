@@ -1,9 +1,11 @@
-import arrow from "./assets/arrow-white.png";
+import arrow from "././assets/arrow-white.png";
+// const arrow =
+//   "https://github.com/dwgrossberg/dynamicUI/blob/main/src/assets/arrow-white.png";
 
 const dropdownMenu = (() => {
   let dropdownMenuDOM;
   const setDropdownDOM = (elemID) => {
-    return (dropdownMenuDOM = document.getElementById(`${elemID}`));
+    dropdownMenuDOM = document.getElementById(`${elemID}`);
   };
 
   let counter = 1;
@@ -12,6 +14,9 @@ const dropdownMenu = (() => {
   menuUL.style.display = "flex";
   menuUL.style.justifyContent = "space-around";
   menuUL.style.listStyle = "none";
+  menuUL.style.padding = "0";
+  menuUL.style.margin = "0";
+  menuUL.style.boxSizing = "border-box";
 
   // setColumns creates the main menu display
   const setColumns = (...args) => {
@@ -57,6 +62,9 @@ const dropdownMenu = (() => {
       dropdownUL.style.width = "100%";
       dropdownUL.style.zIndex = "10";
       dropdownUL.style.position = "relative";
+      dropdownUL.style.padding = "0";
+      dropdownUL.style.margin = "0";
+      dropdownUL.style.boxSizing = "border-box";
 
       args.forEach((arg) => {
         const argLI = document.createElement("li");
@@ -119,6 +127,9 @@ const dropdownMenu = (() => {
     subDropdownUL.style.position = "absolute";
     subDropdownUL.style.width = "fit-content";
     subDropdownUL.style.left = "100%";
+    subDropdownUL.style.padding = "0";
+    subDropdownUL.style.margin = "0";
+    subDropdownUL.style.boxSizing = "border-box";
 
     const subDropdown = (item) => {
       args.forEach((arg) => {
