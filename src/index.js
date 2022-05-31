@@ -5,6 +5,8 @@ import favicon from "./assets/favicon.ico";
 const faviconDOM = document.querySelector('link[rel~="icon"]');
 faviconDOM.href = favicon;
 
+dropdownMenu.setDropdownDOM("dropdown-menu");
+
 dropdownMenu.setColumns(
   ["Home", "input href..."],
   ["About", "input href..."],

@@ -2,11 +2,23 @@
 
 Dynamic UIs built with JavaScript and CSS
 
+`npm install @dwgrossberg/dynamicui`
+
+Visit [https://dwgrossberg.github.io/displayui/] to see a working example
+
+---
+
 ## dropdownMenu.js
+
+`import dropdownMenu from "./src/dropdownMenu.js`
 
 The `dropdownMenu` module allows users to easily generate dropdown website menus, with several customizable features:
 
-- `setColumns` method: takes a group of arrays as an argument and returns an evenly spaced navigation menu, identifiable via `[id="dropdown-menu"]` , which can be placed anyhwere on the page.
+- `setDropdownDOM` method: takes a string as an argument and returns a DOM container for the dropdown menu
+
+  - For example: `dropdownMenu.setDropdownDOM("dropdown-menu")` will search the document for a `div` tag that contains a matching `[id="dropdown-menu"]` attribute and place the dropdown menu within that container.
+
+- `setColumns` method: takes a group of arrays as an argument and returns an evenly spaced navigation menu, whiich can then be eaily placed anyhwere on the page and sized to fit any space.
 
   - For example: `dropdownMenu.setColumns(["text", "href"], ["text", "href"], ["text", "href"], ...)` will return a menu three (or more) columns wide, with each tab displaying the specified "text" and linking to the "href".
   - Nav tabs can be targeted through CSS via `[class="dropdown-nav"]`

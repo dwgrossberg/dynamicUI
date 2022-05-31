@@ -1,7 +1,11 @@
 import arrow from "./assets/arrow-white.png";
 
 const dropdownMenu = (() => {
-  const dropdownMenuDOM = document.getElementById("dropdown-menu");
+  let dropdownMenuDOM;
+  const setDropdownDOM = (elemID) => {
+    return (dropdownMenuDOM = document.getElementById(`${elemID}`));
+  };
+
   let counter = 1;
 
   const menuUL = document.createElement("ul");
@@ -192,6 +196,7 @@ const dropdownMenu = (() => {
   };
 
   return {
+    setDropdownDOM,
     setColumns,
     setDropdown,
     setSubDropdown,
