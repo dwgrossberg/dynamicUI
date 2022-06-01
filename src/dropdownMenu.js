@@ -31,8 +31,10 @@ const dropdownMenu = (() => {
       argA.href = arg[1];
       argA.style.display = "flex";
       argA.style.alignItems = "center";
+      argA.style.justifyContent = "center";
       argA.style.textDecoration = "none";
       argA.style.height = menuHeight;
+      argA.style.width = "100%";
       argLI.appendChild(argA);
       menuUL.appendChild(argLI);
     });
@@ -88,7 +90,7 @@ const dropdownMenu = (() => {
         arrowDiv.innerText = `>`;
         arrowDiv.style.fontWeight = "700";
         arrowDiv.style.transform = "rotate(90deg)";
-        arrowDiv.style.marginLeft = "35%";
+        arrowDiv.style.marginLeft = "15px";
         arrowDiv.style.height = "10px";
         arrowDiv.style.width = "10px";
         const navLink = document.getElementById(`menu-nav-link-${name}`);
@@ -170,7 +172,7 @@ const dropdownMenu = (() => {
               arrowDivSub.style.color = "white";
               arrowDivSub.style.height = "8px";
               arrowDivSub.style.width = "8px";
-              arrowDivSub.style.marginLeft = "35%";
+              arrowDivSub.style.marginLeft = "15px";
               arrowDivSub.style.transform = "translateY(-50%)";
               dropdownItem.style.display = "flex";
               dropdownItem.style.alignItems = "center";

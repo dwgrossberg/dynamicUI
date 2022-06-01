@@ -1,5 +1,8 @@
 import dropdownMenu from "./dropdownMenu.js";
+import mobileMenu from "./mobileMenu.js";
 import "./style.css";
+
+// dropdownMenu example
 
 dropdownMenu.setDropdownDOM("dropdown-menu");
 
@@ -39,3 +42,18 @@ dropdownMenu.setSubDropdown(
   ["subLink-2", "input href..."],
   ["subLink-3", "input href..."]
 );
+
+// mobileMenu example
+
+mobileMenu.setMobileMenuDOM("mobile-menu");
+
+mobileMenu.setColumns(
+  ["Home", "input href..."],
+  ["About", "input href..."],
+  ["Products", "input href..."],
+  ["History", "input href..."],
+  ["Services", "input href..."],
+  ["Contact", "input href..."]
+);
+
+mobileMenu.addMore();
