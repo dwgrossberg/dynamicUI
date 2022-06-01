@@ -1,7 +1,3 @@
-import arrow from "././assets/arrow-white.png";
-// const arrow =
-//   "https://github.com/dwgrossberg/dynamicUI/blob/main/src/assets/arrow-white.png";
-
 const dropdownMenu = (() => {
   let dropdownMenuDOM;
   const setDropdownDOM = (elemID) => {
@@ -89,10 +85,10 @@ const dropdownMenu = (() => {
     menuNavItems.forEach((item) => {
       if (item.innerText === name) {
         const arrowDiv = document.createElement("div");
-        arrowDiv.style.backgroundImage = `url(${arrow})`;
-        arrowDiv.style.backgroundSize = "100%";
+        arrowDiv.innerText = `>`;
+        arrowDiv.style.fontWeight = "700";
         arrowDiv.style.transform = "rotate(90deg)";
-        arrowDiv.style.marginLeft = "15px";
+        arrowDiv.style.marginLeft = "35%";
         arrowDiv.style.height = "10px";
         arrowDiv.style.width = "10px";
         const navLink = document.getElementById(`menu-nav-link-${name}`);
@@ -104,14 +100,12 @@ const dropdownMenu = (() => {
           item.style.flexDirection = "column";
           item.style.alignItems = "center";
           item.style.height = "100%";
-
           dropdownUL.style.display = "block";
-          arrowDiv.style.transform = "rotate(-90deg)";
+          arrowDiv.style.transform = "rotate(-90deg) translateY(-50%)";
         });
 
         item.addEventListener("mouseleave", () => {
           item.style.flexDirection = "row";
-
           dropdownUL.style.display = "none";
           arrowDiv.style.transform = "rotate(90deg)";
         });
@@ -155,7 +149,9 @@ const dropdownMenu = (() => {
     );
 
     menuNavItems.forEach((nav) => {
-      if (nav.innerText === name) {
+      const navArray = Array.from(nav.innerText);
+      navArray.splice(navArray.length - 2, 2);
+      if (navArray.join("") === name) {
         const menuDropdownItems = Array.from(
           document.getElementById(`dropdown-box-${name}`).childNodes
         );
@@ -169,15 +165,17 @@ const dropdownMenu = (() => {
             const dropdownItems = Array.from(item.childNodes);
             dropdownItems.forEach((item) => {
               const arrowDivSub = document.createElement("div");
-              arrowDivSub.style.backgroundImage = `url(${arrow})`;
-              arrowDivSub.style.backgroundSize = "100%";
-              arrowDivSub.style.transform = "";
+              arrowDivSub.innerText = `>`;
+              arrowDivSub.style.fontWeight = "700";
+              arrowDivSub.style.color = "white";
               arrowDivSub.style.height = "8px";
               arrowDivSub.style.width = "8px";
-              arrowDivSub.style.marginLeft = "auto";
+              arrowDivSub.style.marginLeft = "35%";
+              arrowDivSub.style.transform = "translateY(-50%)";
               dropdownItem.style.display = "flex";
               dropdownItem.style.alignItems = "center";
               item.parentNode.appendChild(arrowDivSub);
+
               subDropdown(item);
 
               item.parentElement.addEventListener("mouseenter", () => {
@@ -191,13 +189,13 @@ const dropdownMenu = (() => {
                     .getElementById("dropdown-menu")
                     .getBoundingClientRect().bottom +
                   "px";
-                arrowDivSub.style.transform = "rotate(90deg)";
+                arrowDivSub.style.transform = "rotate(90deg) translateY(-50%)";
               });
 
               item.parentElement.addEventListener("mouseleave", () => {
                 item.style.flexDirection = "row";
                 subDropdownUL.style.display = "none";
-                arrowDivSub.style.transform = "none";
+                arrowDivSub.style.transform = "translateY(-50%)";
               });
             });
           }
