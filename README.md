@@ -10,7 +10,7 @@ Visit [https://dwgrossberg.github.io/displayui/] to see a working example
 
 ## dropdownMenu.js
 
-`import dropdownMenu from "./src/dropdownMenu.js`
+`import dropdownMenu from "node_modules/@dwgrossberg/dynamicui/src/dropdownMenu.js"`
 
 The `dropdownMenu` module allows users to easily generate dropdown website menus, with several customizable features:
 
