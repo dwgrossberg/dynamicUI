@@ -14,7 +14,8 @@ body {
 
 #content {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   min-height: 100vh;
   min-width: 100vw;
@@ -54,4 +55,34 @@ body {
 
 .dropdown-sub-item:hover {
   background-color: #baa1a7;
+}
+
+/* Styles for mobileMenu.js */
+
+.mobile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+}
+
+.mobile-logo,
+.mobile-search {
+  width: 30%;
+  height: 50px;
+  background-color: #baa1a7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-search {
+  width: 15%;
+}
+
+#mobile-menu {
+  width: 55%;
+  height: 50px;
+  background-color: darkslategray;
 }
