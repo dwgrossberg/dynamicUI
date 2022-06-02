@@ -41,6 +41,7 @@ const mobileMenu = (() => {
     mobileMenuDOM.appendChild(menuUL);
 
     dropdown(menuUL);
+    close(menuUL);
   };
 
   const dropdown = (menu) => {
@@ -49,15 +50,24 @@ const mobileMenu = (() => {
       menu.childNodes.forEach((node) => {
         node.style.display = "block";
         node.childNodes[0].style.display = "block";
-        console.log(node.childNodes);
       });
-
       menu.childNodes[menu.childNodes.length - 2].style.zIndex = "2";
       mobileMenuDOM.style.height = `${
         menuHeight.substring(0, menuHeight.length - 2) *
         (menu.childNodes.length - 2)
       }px`;
-      console.log(menu.childNodes[menu.childNodes.length - 2]);
+    });
+  };
+
+  const close = (menu) => {
+    const close = document.getElementById("mobile-nav-link-Close &#215");
+    close.addEventListener("mousedown", () => {
+      menu.childNodes.forEach((node) => {
+        node.style.display = "inline-block";
+        node.childNodes[0].style.display = "inline-block";
+      });
+      menu.childNodes[menu.childNodes.length - 2].style.zIndex = "";
+      mobileMenuDOM.style.height = `${menuHeight}`;
     });
   };
 

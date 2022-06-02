@@ -51,7 +51,12 @@ mobileMenu.setColumns(
   ["Home", "#"],
   ["About", "#"],
   ["Products", "#"],
+  ["Sports", "#"],
+  ["Travel", "#"],
+  ["News", "#"],
   ["History", "#"],
+  ["Blogs", "#"],
+  ["Social", "#"],
   ["Services", "#"],
   ["Contact", "#"]
 );
