@@ -1,6 +1,7 @@
 :root {
   --dropdown-height: 75px;
   --dropdown-width: 100%;
+  --mobile-height: 50px;
 }
 
 *,
@@ -31,6 +32,7 @@ body {
   height: var(--dropdown-height);
   background-color: #797b84;
   min-width: 800px;
+
   display: none;
 }
 
@@ -63,7 +65,7 @@ body {
 
 #mobile-menu {
   width: 100%;
-  height: 50px;
+  height: var(--mobile-height);
   background-color: darkslategray;
   color: white;
 }
@@ -75,14 +77,74 @@ body {
   background-color: rgba(19, 51, 61, 1);
 }
 
+#mobile-menu ul {
+  max-height: 100px;
+}
+
+#mobile-menu li {
+  display: inline-block;
+}
+
 #mobile-menu a {
   color: white;
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0 1em;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  line-height: var(--mobile-height);
+  height: var(--mobile-height);
 }
 
 .mobile-nav:last-child {
+  position: absolute;
+  right: 0;
+  bottom: var(--mobile-height);
+  padding-left: 3em;
   background-image: linear-gradient(
     to right,
     rgba(19, 51, 61, 0) 0,
     rgba(19, 51, 61, 1) 2em
   );
+}
+
+nav#menu:target {
+  height: auto;
+  padding: 0;
+}
+
+nav#menu:target ul {
+  max-height: none;
+}
+
+nav#menu:target li {
+  display: block;
+}
+
+nav#menu:target a {
+  display: block;
+  padding: 0 2em;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+nav#menu:target a:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+nav#menu:target li:not(:first-child) {
+  margin-top: 2px;
+}
+
+nav#menu:target li:last-child {
+  display: none;
+}
+
+nav#menu:target li:nth-last-child(2) {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  border-left: 2px solid rgb(19, 51, 61);
 }
