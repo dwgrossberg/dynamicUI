@@ -7,40 +7,40 @@ import "./style.css";
 dropdownMenu.setDropdownDOM("dropdown-menu");
 
 dropdownMenu.setColumns(
-  ["Home", "input href..."],
-  ["About", "input href..."],
-  ["Products", "input href..."],
-  ["History", "input href..."],
-  ["Services", "input href..."],
-  ["Contact", "input href..."]
+  ["Home", "#"],
+  ["About", "#"],
+  ["Products", "#"],
+  ["History", "#"],
+  ["Services", "#"],
+  ["Contact", "#"]
 );
 
 dropdownMenu.setDropdown(
   "Products",
-  ["Link-1", "input href..."],
-  ["Link-2", "input href..."],
-  ["Link-3 is supppper long", "input href..."],
-  ["Link-4", "input href..."],
-  ["Link-5", "input href..."]
+  ["Link-1", "#"],
+  ["Link-2", "#"],
+  ["Link-3 is supppper long", "#"],
+  ["Link-4", "#"],
+  ["Link-5", "#"]
 );
 
 dropdownMenu.setDropdown(
   "Services",
-  ["Link-1", "input href..."],
-  ["Link-2", "input href..."],
-  ["Link-3", "input href..."],
-  ["Link-4", "input href..."],
-  ["Link-5", "input href..."],
-  ["Link-6", "input href..."],
-  ["Link-7", "input href..."]
+  ["Link-1", "#"],
+  ["Link-2", "#"],
+  ["Link-3", "#"],
+  ["Link-4", "#"],
+  ["Link-5", "#"],
+  ["Link-6", "#"],
+  ["Link-7", "#"]
 );
 
 dropdownMenu.setSubDropdown(
   "Products",
   "Link-2",
-  ["subLink-1", "input href..."],
-  ["subLink-2", "input href..."],
-  ["subLink-3", "input href..."]
+  ["subLink-1", "#"],
+  ["subLink-2", "#"],
+  ["subLink-3", "#"]
 );
 
 // mobileMenu example
@@ -48,12 +48,10 @@ dropdownMenu.setSubDropdown(
 mobileMenu.setMobileMenuDOM("mobile-menu");
 
 mobileMenu.setColumns(
-  ["Home", "input href..."],
-  ["About", "input href..."],
-  ["Products", "input href..."],
-  ["History", "input href..."],
-  ["Services", "input href..."],
-  ["Contact", "input href..."]
+  ["Home", "#"],
+  ["About", "#"],
+  ["Products", "#"],
+  ["History", "#"],
+  ["Services", "#"],
+  ["Contact", "#"]
 );
-
-mobileMenu.addMore();
