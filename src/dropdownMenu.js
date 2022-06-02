@@ -31,10 +31,8 @@ const dropdownMenu = (() => {
       argA.href = arg[1];
       argA.style.display = "flex";
       argA.style.alignItems = "center";
-      argA.style.justifyContent = "center";
       argA.style.textDecoration = "none";
       argA.style.height = menuHeight;
-      argA.style.width = "100%";
       argLI.appendChild(argA);
       menuUL.appendChild(argLI);
     });
@@ -172,7 +170,7 @@ const dropdownMenu = (() => {
               arrowDivSub.style.color = "white";
               arrowDivSub.style.height = "8px";
               arrowDivSub.style.width = "8px";
-              arrowDivSub.style.marginLeft = "15px";
+              arrowDivSub.style.marginLeft = "35%";
               arrowDivSub.style.transform = "translateY(-50%)";
               dropdownItem.style.display = "flex";
               dropdownItem.style.alignItems = "center";
