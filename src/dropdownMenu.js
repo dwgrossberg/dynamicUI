@@ -85,10 +85,9 @@ const dropdownMenu = (() => {
     menuNavItems.forEach((item) => {
       if (item.innerText === name) {
         const arrowDiv = document.createElement("div");
-        arrowDiv.innerText = `>`;
-        arrowDiv.style.fontWeight = "700";
-        arrowDiv.style.transform = "rotate(90deg)";
+        arrowDiv.innerHTML = `&#9660`;
         arrowDiv.style.marginLeft = "15px";
+        arrowDiv.style.marginBottom = "5px";
         arrowDiv.style.height = "10px";
         arrowDiv.style.width = "10px";
         const navLink = document.getElementById(`menu-nav-link-${name}`);
@@ -101,13 +100,13 @@ const dropdownMenu = (() => {
           item.style.alignItems = "center";
           item.style.height = "100%";
           dropdownUL.style.display = "block";
-          arrowDiv.style.transform = "rotate(-90deg) translateY(-50%)";
+          arrowDiv.style.transform = "rotate(180deg) translateY(-50%)";
         });
 
         item.addEventListener("mouseleave", () => {
           item.style.flexDirection = "row";
           dropdownUL.style.display = "none";
-          arrowDiv.style.transform = "rotate(90deg)";
+          arrowDiv.style.transform = "rotate(0deg)";
         });
       }
     });
@@ -165,13 +164,12 @@ const dropdownMenu = (() => {
             const dropdownItems = Array.from(item.childNodes);
             dropdownItems.forEach((item) => {
               const arrowDivSub = document.createElement("div");
-              arrowDivSub.innerText = `>`;
-              arrowDivSub.style.fontWeight = "700";
+              arrowDivSub.innerHTML = `&#9660`;
+              arrowDivSub.style.marginBottom = "5px";
               arrowDivSub.style.color = "white";
               arrowDivSub.style.height = "8px";
               arrowDivSub.style.width = "8px";
-              arrowDivSub.style.marginLeft = "35%";
-              arrowDivSub.style.transform = "translateY(-50%)";
+              arrowDivSub.style.marginLeft = "15%";
               dropdownItem.style.display = "flex";
               dropdownItem.style.alignItems = "center";
               item.parentNode.appendChild(arrowDivSub);
@@ -189,13 +187,14 @@ const dropdownMenu = (() => {
                     .getElementById("dropdown-menu")
                     .getBoundingClientRect().bottom +
                   "px";
-                arrowDivSub.style.transform = "rotate(90deg) translateY(-50%)";
+                arrowDivSub.style.transform =
+                  "rotate(-90deg) translateX(-50%) translateY(50%)";
               });
 
               item.parentElement.addEventListener("mouseleave", () => {
                 item.style.flexDirection = "row";
                 subDropdownUL.style.display = "none";
-                arrowDivSub.style.transform = "translateY(-50%)";
+                arrowDivSub.style.transform = "translateX(50%)";
               });
             });
           }

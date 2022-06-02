@@ -72,9 +72,7 @@ body {
 }
 
 .mobile-nav:active,
-.mobile-nav:hover,
-.mobile-menu-more:active,
-.mobile-menu-more:hover {
+.mobile-nav:hover {
   background-color: rgba(19, 51, 61, 1);
 }
 
