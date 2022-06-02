@@ -1,8 +1,10 @@
 const mobileMenu = (() => {
   let mobileMenuDOM;
+  let menuHeight;
   const setMobileMenuDOM = (elemID) => {
     mobileMenuDOM = document.getElementById(`${elemID}`);
     mobileMenuDOM.style.overflow = "hidden";
+    menuHeight = window.getComputedStyle(mobileMenuDOM).height;
   };
 
   const menuUL = document.createElement("ul");
@@ -13,13 +15,12 @@ const mobileMenu = (() => {
 
   const setColumns = (...args) => {
     //  Add Close and More to the args list
-    [].push.call(args, [`Close &#215`, "#close-more"]);
-    [].push.call(args, [`More &#9776`, "#more"]);
-    const menuHeight = window.getComputedStyle(mobileMenuDOM).height;
+    [].push.call(args, [`Close &#215`, "#"]);
+    [].push.call(args, [`More &#9776`, "#"]);
     args.forEach((arg) => {
       const argLI = document.createElement("li");
       argLI.classList.add("mobile-nav");
-      menuUL.style.maxHeight = menuHeight * 2;
+      menuUL.style.maxHeight = menuHeight * (args.length - 2);
       argLI.style.cursor = "pointer";
       argLI.style.display = "inline-block";
       const argA = document.createElement("a");
@@ -37,11 +38,27 @@ const mobileMenu = (() => {
       argLI.appendChild(argA);
       menuUL.appendChild(argLI);
     });
-
     mobileMenuDOM.appendChild(menuUL);
 
-    // Style the More and Close tabs
-    menuUL.childNodes[menuUL.childNodes.length - 2].style.display = "none";
+    dropdown(menuUL);
+  };
+
+  const dropdown = (menu) => {
+    const more = document.getElementById("mobile-nav-link-More &#9776");
+    more.addEventListener("mousedown", () => {
+      menu.childNodes.forEach((node) => {
+        node.style.display = "block";
+        node.childNodes[0].style.display = "block";
+        console.log(node.childNodes);
+      });
+
+      menu.childNodes[menu.childNodes.length - 2].style.zIndex = "2";
+      mobileMenuDOM.style.height = `${
+        menuHeight.substring(0, menuHeight.length - 2) *
+        (menu.childNodes.length - 2)
+      }px`;
+      console.log(menu.childNodes[menu.childNodes.length - 2]);
+    });
   };
 
   return {
