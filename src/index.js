@@ -73,10 +73,10 @@ import image5 from "./assets/pexels-ian-beckley-2440079.jpg";
 import image6 from "./assets/pexels-pixabay-256379.jpg";
 
 imageSlider.setImages(
-  [image1, "caption"],
-  [image2, "caption"],
-  [image3, "caption"],
-  [image4, "caption"],
-  [image5, "caption"],
-  [image6, "caption"]
+  [image1, "caption1"],
+  [image2, "caption2"],
+  [image3, "caption3"],
+  [image4, "caption4"],
+  [image5, "caption5"],
+  [image6, "caption6"]
 );

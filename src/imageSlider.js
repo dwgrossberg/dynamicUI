@@ -2,14 +2,20 @@ const imageSlider = (() => {
   let imageSliderDOM;
   const setImageSliderDOM = (elemID) => {
     imageSliderDOM = document.getElementById(`${elemID}`);
-    imageSliderDOM.style.boxSizing = "border-box";
-    imageSliderDOM.style.position = "relative";
-    imageSliderDOM.style.width = "1000px";
+    imageSliderDOM.style.overflow = "hidden";
+    imageSliderDOM.style.display = "flex";
+    // imageSliderDOM.style.alignItems = "flex-end";
   };
+
+  const sliderContainer = document.createElement("div");
+  sliderContainer.style.boxSizing = "border-box";
+  sliderContainer.style.position = "relative";
+  sliderContainer.style.width = "1000px";
 
   const setImages = (...args) => {
     args.forEach((arg) => {
       const mySlide = document.createElement("div");
+      mySlide.classList.add("image-slide");
       mySlide.style.display = "none";
       mySlide.style.animationName = "fade";
       mySlide.style.animationDuration = "1.5s";
@@ -29,6 +35,7 @@ const imageSlider = (() => {
       const slideImg = document.createElement("img");
       slideImg.src = arg[0];
       slideImg.style.width = "100%";
+      slideImg.style.placeSelf = "center";
       mySlide.appendChild(slideImg);
 
       const textDiv = document.createElement("div");
@@ -39,20 +46,19 @@ const imageSlider = (() => {
       textDiv.style.textAlign = "center";
       textDiv.style.padding = "8px 12px";
       textDiv.style.position = "absolute";
-      textDiv.style.top = "0";
+      textDiv.style.bottom = "25px";
+      textDiv.style.width = "100%";
       mySlide.appendChild(textDiv);
 
-      imageSliderDOM.appendChild(mySlide);
+      sliderContainer.appendChild(mySlide);
     });
 
     const prev = document.createElement("a");
     prev.classList.add("image-prev");
-    // prev.onclick(plusSlides(-1));
     prev.innerHTML = `&#10094;`;
 
     const next = document.createElement("a");
     next.classList.add("image-next");
-    // next.onclick(plusSlides(1));
     next.innerHTML = `&#10095;`;
     next.style.right = "0";
     next.style.borderRadius = "3px 0 0 3px";
@@ -72,23 +78,84 @@ const imageSlider = (() => {
       item.style.userSelect = "none";
     }
 
-    imageSliderDOM.appendChild(prev);
-    imageSliderDOM.appendChild(next);
+    sliderContainer.appendChild(prev);
+    sliderContainer.appendChild(next);
 
     const dotDiv = document.createElement("div");
     dotDiv.style.textAlign = "center";
     for (let i = 0; i < args.length; i++) {
       const dotSpan = document.createElement("span");
-      //   dotSpan.onclick(currentSlide(`${i + 1}`));
       dotSpan.classList.add("image-dot");
       dotSpan.style.cursor = "pointer";
-      dotSpan.style.height = "15px";
-      dotSpan.style.width = "15px";
-      dotSpan.style.margin = "0 2px";
-      dotSpan.style.backgroundColor = "bbb";
+      dotSpan.style.height = "11px";
+      dotSpan.style.width = "11px";
+      dotSpan.style.margin = "5px 5px";
       dotSpan.style.borderRadius = "50%";
       dotSpan.style.display = "inline-block";
       dotSpan.style.transition = "background-color 0.6s ease";
+      dotDiv.appendChild(dotSpan);
+    }
+    sliderContainer.appendChild(dotDiv);
+
+    imageSliderDOM.appendChild(sliderContainer);
+
+    slideImages();
+  };
+
+  const slideImages = () => {
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlide(n) {
+      showSlides((slideIndex += n));
+    }
+
+    const prevs = Array.from(document.getElementsByClassName("image-prev"));
+    prevs.forEach((prev) => {
+      prev.addEventListener("mousedown", () => {
+        plusSlide(-1);
+      });
+    });
+
+    const nexts = Array.from(document.getElementsByClassName("image-next"));
+    nexts.forEach((next) => {
+      next.addEventListener("mousedown", () => {
+        plusSlide(1);
+      });
+    });
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+      showSlides((slideIndex = n));
+    }
+
+    const dots = Array.from(document.getElementsByClassName("image-dot"));
+    dots.forEach((dot) => {
+      dot.addEventListener("mousedown", () => {
+        currentSlide(dots.indexOf(dot) + 1);
+      });
+    });
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("image-slide");
+      let dots = document.getElementsByClassName("image-dot");
+      if (n > slides.length) {
+        slideIndex = 1;
+      }
+      if (n < 1) {
+        slideIndex = slides.length;
+      }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].classList.add("active");
     }
   };
 
