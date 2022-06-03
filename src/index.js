@@ -9,9 +9,8 @@ dropdownMenu.setDropdownDOM("dropdown-menu");
 
 dropdownMenu.setColumns(
   ["Home", "#"],
-  ["About", "#"],
   ["Products", "#"],
-  ["History", "#"],
+  ["About", "#"],
   ["Services", "#"],
   ["Contact", "#"]
 );
@@ -67,12 +66,17 @@ mobileMenu.setColumns(
 imageSlider.setImageSliderDOM("image-slider");
 
 import image1 from "./assets/pexels-pixabay-2166.jpg";
+import image2 from "./assets/pexels-miriam-espacio-10322285.jpg";
+import image3 from "./assets/pexels-pixabay-2156.jpg";
+import image4 from "./assets/pexels-pixabay-33688.jpg";
+import image5 from "./assets/pexels-ian-beckley-2440079.jpg";
+import image6 from "./assets/pexels-pixabay-256379.jpg";
 
 imageSlider.setImages(
-  [image1, "altText"],
-  ["./assets/pexels-miriam-espacio-10322285.jpg", "altText"],
-  ["./assets/pexels-pixabay-2156.jpg", "altText"],
-  ["./assets/pexels-pixabay-33688.jpg", "altText"],
-  ["./assets/pexels-ian-beckley-2440079.jpg", "altText"],
-  ["./assets/pexels-pixabay-256379.jpg", "altText"]
+  [image1, "caption"],
+  [image2, "caption"],
+  [image3, "caption"],
+  [image4, "caption"],
+  [image5, "caption"],
+  [image6, "caption"]
 );

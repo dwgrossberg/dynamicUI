@@ -103,3 +103,24 @@ body {
   height: 300px;
   background-color: papayawhip;
 }
+
+.image-prev:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.image-next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.image-dot:hover {
+  background-color: #717171;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
