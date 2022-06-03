@@ -38,8 +38,20 @@ const mobileMenu = (() => {
       argLI.appendChild(argA);
       menuUL.appendChild(argLI);
     });
-    mobileMenuDOM.appendChild(menuUL);
 
+    // Style the Close and More tabs
+    menuUL.lastChild.style.position = "absolute";
+    menuUL.lastChild.style.right = "0";
+    menuUL.lastChild.style.top = "0";
+    menuUL.lastChild.style.paddingLeft = "1em";
+    menuUL.lastChild.style.zIndex = "1";
+    menuUL.childNodes[menuUL.childNodes.length - 2].style.position = "absolute";
+    menuUL.childNodes[menuUL.childNodes.length - 2].style.right = "0";
+    menuUL.childNodes[menuUL.childNodes.length - 2].style.top = "0";
+    menuUL.childNodes[menuUL.childNodes.length - 2].style.paddingLeft = "1em";
+    menuUL.childNodes[menuUL.childNodes.length - 2].style.zIndex = "0";
+
+    mobileMenuDOM.appendChild(menuUL);
     dropdown(menuUL);
     close(menuUL);
   };
@@ -66,7 +78,7 @@ const mobileMenu = (() => {
         node.style.display = "inline-block";
         node.childNodes[0].style.display = "inline-block";
       });
-      menu.childNodes[menu.childNodes.length - 2].style.zIndex = "";
+      menu.childNodes[menu.childNodes.length - 2].style.zIndex = "0";
       mobileMenuDOM.style.height = `${menuHeight}`;
     });
   };

@@ -1,5 +1,6 @@
 import dropdownMenu from "./dropdownMenu.js";
 import mobileMenu from "./mobileMenu.js";
+import imageSlider from "./imageSlider.js";
 import "./style.css";
 
 // dropdownMenu example
@@ -59,4 +60,19 @@ mobileMenu.setColumns(
   ["Social", "#"],
   ["Services", "#"],
   ["Contact", "#"]
+);
+
+// imageSlider example
+
+imageSlider.setImageSliderDOM("image-slider");
+
+import image1 from "./assets/pexels-pixabay-2166.jpg";
+
+imageSlider.setImages(
+  [image1, "altText"],
+  ["./assets/pexels-miriam-espacio-10322285.jpg", "altText"],
+  ["./assets/pexels-pixabay-2156.jpg", "altText"],
+  ["./assets/pexels-pixabay-33688.jpg", "altText"],
+  ["./assets/pexels-ian-beckley-2440079.jpg", "altText"],
+  ["./assets/pexels-pixabay-256379.jpg", "altText"]
 );

@@ -56,7 +56,7 @@ const dropdownMenu = (() => {
       dropdownUL.style.textDecoration = "none";
       dropdownUL.style.height = "fit-content";
       dropdownUL.style.width = "100%";
-      dropdownUL.style.zIndex = "10";
+      dropdownUL.style.zIndex = "1";
       dropdownUL.style.position = "relative";
       dropdownUL.style.padding = "0";
       dropdownUL.style.margin = "0";
@@ -86,7 +86,7 @@ const dropdownMenu = (() => {
       if (item.innerText === name) {
         const arrowDiv = document.createElement("div");
         arrowDiv.innerHTML = `&#9660`;
-        arrowDiv.style.marginLeft = "15px";
+        arrowDiv.style.marginLeft = "10px";
         arrowDiv.style.marginBottom = "5px";
         arrowDiv.style.height = "10px";
         arrowDiv.style.width = "10px";
