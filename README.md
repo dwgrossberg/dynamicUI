@@ -6,7 +6,7 @@ Dynamic UIs built with JavaScript and CSS
 
 Generate dynamic user menus with simple function calls take the time-consuming work out of designing interactive navigation UIs.
 
-Visit ([https://dwgrossberg.github.io/dynamicUI/]) to see a working example
+Visit https://dwgrossberg.github.io/dynamicUI/ to see a working example
 
 Visit the [source files](https://github.com/dwgrossberg/dynamicUI/tree/main/src) to view each module in detail, as well as the baseline style.css file
 
