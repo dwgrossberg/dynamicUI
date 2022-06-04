@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/dwgrossberg/dynamicUI/issues"
   },
-  "homepage": "https://github.com/dwgrossberg/dynamicUI#readme",
+  "homepage": "https://github.com/dwgrossberg/dynamicUI/",
   "devDependencies": {
     "css-loader": "^6.7.1",
     "eslint": "^8.16.0",
