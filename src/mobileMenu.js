@@ -42,12 +42,16 @@ const mobileMenu = (() => {
     // Style the Close and More tabs
     menuUL.lastChild.style.position = "absolute";
     menuUL.lastChild.style.right = "0";
-    menuUL.lastChild.style.top = "0";
+    menuUL.lastChild.style.bottom = `${
+      window.getComputedStyle(mobileMenuDOM).height
+    }`;
     menuUL.lastChild.style.paddingLeft = "1em";
     menuUL.lastChild.style.zIndex = "1";
     menuUL.childNodes[menuUL.childNodes.length - 2].style.position = "absolute";
     menuUL.childNodes[menuUL.childNodes.length - 2].style.right = "0";
-    menuUL.childNodes[menuUL.childNodes.length - 2].style.top = "0";
+    menuUL.childNodes[menuUL.childNodes.length - 2].style.bottom = `${
+      window.getComputedStyle(mobileMenuDOM).height
+    }`;
     menuUL.childNodes[menuUL.childNodes.length - 2].style.paddingLeft = "1em";
     menuUL.childNodes[menuUL.childNodes.length - 2].style.zIndex = "0";
 
