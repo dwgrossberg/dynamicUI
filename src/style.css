@@ -65,10 +65,6 @@ body {
   background-color: rgba(19, 51, 61, 1);
 }
 
-#mobile-menu ul {
-  max-height: 100px;
-}
-
 #mobile-menu li {
   display: inline-block;
 }

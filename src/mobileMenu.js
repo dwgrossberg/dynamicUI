@@ -20,7 +20,7 @@ const mobileMenu = (() => {
     args.forEach((arg) => {
       const argLI = document.createElement("li");
       argLI.classList.add("mobile-nav");
-      menuUL.style.maxHeight = menuHeight * (args.length - 2);
+      menuUL.style.maxHeight = menuHeight * 2;
       argLI.style.cursor = "pointer";
       argLI.style.display = "inline-block";
       const argA = document.createElement("a");
@@ -46,14 +46,12 @@ const mobileMenu = (() => {
       window.getComputedStyle(mobileMenuDOM).height
     }`;
     menuUL.lastChild.style.paddingLeft = "1em";
-    menuUL.lastChild.style.zIndex = "1";
+
+    menuUL.childNodes[menuUL.childNodes.length - 2].style.display = "none";
     menuUL.childNodes[menuUL.childNodes.length - 2].style.position = "absolute";
     menuUL.childNodes[menuUL.childNodes.length - 2].style.right = "0";
-    menuUL.childNodes[menuUL.childNodes.length - 2].style.bottom = `${
-      window.getComputedStyle(mobileMenuDOM).height
-    }`;
+    menuUL.childNodes[menuUL.childNodes.length - 2].style.top = "0";
     menuUL.childNodes[menuUL.childNodes.length - 2].style.paddingLeft = "1em";
-    menuUL.childNodes[menuUL.childNodes.length - 2].style.zIndex = "0";
 
     mobileMenuDOM.appendChild(menuUL);
     dropdown(menuUL);
@@ -67,7 +65,7 @@ const mobileMenu = (() => {
         node.style.display = "block";
         node.childNodes[0].style.display = "block";
       });
-      menu.childNodes[menu.childNodes.length - 2].style.zIndex = "2";
+      menu.lastChild.style.display = "none";
       mobileMenuDOM.style.height = `${
         menuHeight.substring(0, menuHeight.length - 2) *
         (menu.childNodes.length - 2)
@@ -82,7 +80,7 @@ const mobileMenu = (() => {
         node.style.display = "inline-block";
         node.childNodes[0].style.display = "inline-block";
       });
-      menu.childNodes[menu.childNodes.length - 2].style.zIndex = "0";
+      menu.childNodes[menu.childNodes.length - 2].style.display = "none";
       mobileMenuDOM.style.height = `${menuHeight}`;
     });
   };
