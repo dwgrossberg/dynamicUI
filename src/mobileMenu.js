@@ -46,7 +46,6 @@ const mobileMenu = (() => {
       window.getComputedStyle(mobileMenuDOM).height
     }`;
     menuUL.lastChild.style.paddingLeft = "1em";
-
     menuUL.childNodes[menuUL.childNodes.length - 2].style.display = "none";
     menuUL.childNodes[menuUL.childNodes.length - 2].style.position = "absolute";
     menuUL.childNodes[menuUL.childNodes.length - 2].style.right = "0";
